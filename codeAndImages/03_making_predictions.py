@@ -28,7 +28,7 @@ model = model_from_json(model_structure)
 model.load_weights("model_weights.h5")
 
 # Load an image file to test, resizing it to 32x32 pixels (as required by this model)
-img = image.load_img("cat.png", target_size=(32,32))
+img = image.load_img("Chapter 5 Exercises/odieImage.jpg", target_size=(32, 32))
 
 # Convert the image to a numpy array
 image_to_test = image.img_to_array(img) / 255

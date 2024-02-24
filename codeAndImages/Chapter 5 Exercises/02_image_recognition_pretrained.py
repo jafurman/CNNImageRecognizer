@@ -6,7 +6,7 @@ from keras.applications import vgg16
 model = vgg16.VGG16()
 
 # Load the image file, resizing it to 224x224 pixels (required by this model)
-img = image.load_img("bay.jpg", target_size=(224, 224))
+img = image.load_img("dawgs.jpg", target_size=(224, 224))
 
 # Convert the image to a numpy array
 x = image.img_to_array(img)
@@ -21,10 +21,10 @@ x = vgg16.preprocess_input(x)
 predictions = model.predict(x)
 
 # Look up the names of the predicted classes. Index zero is the results for the first image.
-predicted_classes = vgg16.decode_predictions(predictions, top=18)
+predicted_classes = vgg16.decode_predictions(predictions, top=10)
 
 print("Top predictions for this image:")
 
 for imagenet_id, name, likelihood in predicted_classes[0]:
-    print("Prediction: {} - {:2f}".format(name, likelihood))
+    print("Prediction: {} - {:2f}".format(name, (likelihood * 100)))
 
